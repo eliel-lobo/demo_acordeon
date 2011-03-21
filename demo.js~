@@ -1,0 +1,83 @@
+function append2panel(id, type){
+
+    //text = text.replace(/^\s+/g,'').replace(/\s+$/g,'');    
+    
+    if(document.getElementById('f-' + id)){
+        borrar('f-' + id);
+        return;
+    }
+	
+	var parent = id.split('-')[0];
+	var text = id.split('-')[1];	
+    
+    //contains allthe filter element
+    var container = document.createElement('div');
+    container.id = 'f-' + id;
+    container.className = "filter";
+    
+    //the close button
+    var but = document.createElement('input');
+    but.type = 'button';
+    but.value = 'x';
+    but.onclick = function () {borrar(text)} 
+    but.setAttribute("style","font-size: 0,5em");
+    
+    //the table which organizes the layout of the filter element
+    var table = document.createElement('table');
+    
+    var tr1 = document.createElement('tr');
+    var td11 = document.createElement('td');
+    td11.setAttribute("style","width: 100%;");
+	td11.setAttribute("colspan","2");
+	td11.innerHTML = "<b>"+parent+"</b>";
+    var td12 = document.createElement('td');
+    td12.setAttribute("style","width: 5px; aling:right");
+    td12.appendChild(but);
+    tr1.appendChild(td11);
+    tr1.appendChild(td12);
+    
+    var tr2 = document.createElement('tr');
+    var td21 = document.createElement('td');
+    td21.innerHTML = text;
+	td21.setAttribute("style","width: 5%; padding-left: 5px");
+    tr2.appendChild(td21);
+    
+    var td22 = document.createElement('td');
+    var input = addInput(text, type);
+    td22.appendChild(input);
+    
+    table.appendChild(tr1);
+    table.appendChild(tr2);
+    tr2.appendChild(td22);
+    
+    container.appendChild(table);
+    
+    $("#panel-filter").append(container);
+}
+
+function borrar(obj){
+    fi = document.getElementById('panel-filter'); 
+    fi.removeChild(document.getElementById(obj));
+}
+
+function addInput(name, type){
+    var input;
+    
+    if(type == 'T'){    
+        input = document.createElement('input');
+        input.type = "text";
+        input.setAttribute("size","12");
+                
+    } else if(type == 'C'){
+        input = document.createElement('select');
+        for(i = 1; i <= 10; i++){
+            var option = document.createElement('option');
+            option.value = name + " " + i;
+            option.innerHTML = name + " " + i;
+            input.appendChild(option);
+        }
+    }
+    
+    return input
+}
+ 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">	
+	<title>jQuery UI Accordion - Collapse content</title>
+	<link rel="stylesheet" href="development-bundle/themes/base/jquery.ui.all.css">
+	<script src="development-bundle/jquery-1.4.4.js"></script>
+	<script src="development-bundle/ui/jquery.ui.core.js"></script>
+	<script src="development-bundle/ui/jquery.ui.widget.js"></script>
+	<script src="development-bundle/ui/jquery.ui.accordion.js"></script>
+	<link rel="stylesheet" href="development-bundle/demos/demos.css">
+	
+	<script src="demo.js"></script>
+	<link rel="stylesheet" href="demo.css">
+	
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion({
+		  collapsible: true
+		});
+	});
+	</script>
+
+</head>
+
+<body>
+<div class="filter-item" id="panel-filter"> 
+  <h2>Filtros De Busqueda</h2>
+</div>
+  
+
+<div class="demo">
+
+<div id="accordion">
+	<h3><a href="#">Prensa</a></h3>
+	<div>
+		<div class="filter-item" onclick="append2panel(this.id, 'T')" 
+			id="prensa-autor">
+		  Autor
+		</div>
+		<div class="filter-item" onclick="append2panel(this.id, 'C')" 
+			id="prensa-genero">
+		  Genero
+		</div>
+		<div class="filter-item" onclick="append2panel(this.id, 'T')" 
+			id="prensa-publicación">
+		  Publicacion
+		</div>
+	</div>
+	<h3><a href="#">Programas de mano</a></h3>
+	<div>
+		<div class="filter-item" onclick="append2panel(this.id, 'C')" 
+			id="programas de mano-genero">
+		  Genero
+		</div>
+		<div class="filter-item" onclick="append2panel(this.id, 'C')" 
+			id="programas de mano-evento">
+		  Evento
+		</div>
+		<div class="filter-item" onclick="append2panel(this.id), 'C'" 
+			id="programas de mano-ciudad">
+		  Ciudad
+		</div>  
+	</div>
+	<h3><a href="#">Section 3</a></h3>
+	<div>
+		<p>
+		Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+		Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+		ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+		lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+		</p>
+		<ul>
+			<li>List item one</li>
+			<li>List item two</li>
+			<li>List item three</li>
+		</ul>
+	</div>
+	<h3><a href="#">Section 4</a></h3>
+	<div>
+		<p>
+		Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+		et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+		faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+		mauris vel est.
+		</p>
+		<p>
+		Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+		Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+		inceptos himenaeos.
+		</p>
+	</div>
+</div>
+
+</div><!-- End demo -->
+
+<div class="demo-description">
+<p>
+Click headers to expand/collapse content that is broken into logical sections, much like tabs.
+Optionally, toggle sections open/closed on mouseover.
+</p>
+<p>
+The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
+usable without JavaScript.
+</p>
+</div><!-- End demo-description -->
+</body>
