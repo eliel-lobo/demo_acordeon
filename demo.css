@@ -24,12 +24,16 @@
 
 .c-sonido { background: #75507b; }
 
-.c-partituras { background: #edd400; }
+.c-partituras { background: #cc0000 }
 
 select {
 	padding: .2em;
 	min-width: 14em;
 	font-size: 12px;
+}
+
+input[type="text"] {
+    border: 2px solid #888;
 }
 
 .close-but {

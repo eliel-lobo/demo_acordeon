@@ -77,7 +77,7 @@ function createContainer(id, initFilterType){
     var td1 = document.createElement('td');
     td1.setAttribute("style","width: 100%;");
 	td1.setAttribute("colspan","2");
-	td1.innerHTML = "<b>"+categoryName+"</b>";
+	td1.innerHTML = "<b>&raquo;&nbsp;"+categoryName+"</b>";
     var td2 = document.createElement('td');
     td2.setAttribute("style","width: 5px; aling:right");
     td2.appendChild(but);
@@ -107,9 +107,14 @@ function createFilter(name, type, id){
 	td1.setAttribute("style","width: 5%; padding-left: 5px");
     tr.appendChild(td1);
     
-    var td2 = document.createElement('td');
-    var input = createInput(name, type);
-    td2.appendChild(input);
+    var td2; //= document.createElement('td');
+    var input = createInput(name, type);        
+    if(type != 'F'){        
+        td2 = document.createElement('td');
+        td2.appendChild(input);
+    } else {
+        td2 = input;
+    }
     
     //the close button
     var but = document.createElement('input');
@@ -142,6 +147,26 @@ function createInput(name, type){
             option.innerHTML = name + " " + i;
             input.appendChild(option);
         }
+    } else {
+        input = document.createElement('td');
+        input.setAttribute("style", "padding-left: 13px;")
+        
+        var desde = document.createElement('input');
+        desde.type = "text";
+        desde.setAttribute("size","4");
+        var txtDesde = document.createElement('span');
+        txtDesde.innerHTML = "despues de:"        
+        
+        var hasta = document.createElement('input');
+        hasta.type = "text";
+        hasta.setAttribute("size","4");
+        var txtHasta = document.createElement('span');
+        txtHasta.innerHTML = "&nbsp;antes de:"  
+        
+        input.appendChild(txtDesde);
+        input.appendChild(desde);
+        input.appendChild(txtHasta);
+        input.appendChild(hasta);
     }
     
     return input
