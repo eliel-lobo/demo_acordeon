@@ -9,7 +9,7 @@
 }
 
 .filter{
-    background: #0099cc;
+    /*background: #0099cc;*/
 	color:#ffffff;
 	-moz-border-radius: 5px; -webkit-border-radius: 5px;
 	font-size:15px; 
@@ -17,6 +17,14 @@
 	margin: 3px; 
 	text-transform: capitalize;
 }
+
+.c-prensa { background: #3465a4; }
+
+.c-pdm { background: #c17d11; }
+
+.c-sonido { background: #75507b; }
+
+.c-partituras { background: #edd400; }
 
 select {
 	padding: .2em;
@@ -33,4 +41,19 @@ select {
 	background: whiteSmoke;
 	height: 2.2em;
 	width: 2.2em;
+}
+
+.f-close-but {
+	font-size: 12px;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin-left: 5px;	
+	border: none;
+	background: none;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+.f-close-but:hover { 
+    background: darkred;/*#444444;*/
+    color: white;
 }

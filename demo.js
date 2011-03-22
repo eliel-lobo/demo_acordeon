@@ -49,10 +49,18 @@ function createContainer(id, initFilterType){
     var container;
     var categoryName = id.split('-')[0];
 	var filterName = id.split('-')[1];
+	
+	var colorClass;
+	if(categoryName == 'programas de mano')
+	    colorClass = "c-pdm";  	    
+	else
+	    colorClass = "c-" + categoryName;
+	
+	
 		
     container = document.createElement('div');
     container.id = 'c-' + categoryName;
-    container.className = "filter"; 
+    container.className = "filter " + colorClass; 
     
     //the close button
     var but = document.createElement('input');
@@ -108,7 +116,7 @@ function createFilter(name, type, id){
     but.type = 'button';
     but.value = 'x';
     but.onclick = function () {borrarFiltro(category , id)} 
-    //but.className = "close-but"; 
+    but.className = "f-close-but"; 
     
     td2.appendChild(but);
     
