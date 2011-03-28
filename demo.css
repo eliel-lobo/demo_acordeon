@@ -1,3 +1,14 @@
+.filter-area {
+    background: #bbbbbb;
+	color:#ffffff;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px;
+	font-size:10px; 
+	padding:5px; 
+	margin: 3px;
+	text-transform: capitalize;
+	border: 1px;
+}
+
 .filter-item {
     background: #bbbbbb;
 	color:#ffffff;
@@ -6,6 +17,11 @@
 	padding:5px; 
 	margin: 3px;
 	text-transform: capitalize;
+	border: 1px;
+}
+
+.filter-item:hover{
+    opacity: 0.6;
 }
 
 .filter{
@@ -49,11 +65,14 @@ input[type="text"] {
 
 .f-close-but {
 	font-size: 12px;
-	padding-left: 4px;
+	padding-top: 0px;
+	padding-left: 5px;	
 	padding-right: 4px;
 	margin-left: 5px;	
 	border: none;
 	background: none;
+	height: 17px;
+	width: 17px;
 	-moz-border-radius: 5px; -webkit-border-radius: 5px;
 }
 
@@ -61,3 +80,16 @@ input[type="text"] {
     background: darkred;/*#444444;*/
     color: white;
 }
+
+img {
+ width:16px; 
+ padding-top:4px; 
+ padding-left:3px; 
+ background:none;
+}
+
+img:hover {
+    opacity: 0.5;
+}
+
+

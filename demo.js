@@ -68,6 +68,7 @@ function createContainer(id, initFilterType){
     but.value = 'x';
     but.onclick = function () {borrar('panel-filter', 'c-' + categoryName)} 
     but.className = "close-but"; 
+    but.title = 'Cerrar todos los filtros de ' + categoryName;
     
     //the table which organizes the layout of the filter element
     var table = document.createElement('table');
@@ -76,7 +77,7 @@ function createContainer(id, initFilterType){
     var tr = document.createElement('tr');
     var td1 = document.createElement('td');
     td1.setAttribute("style","width: 100%;");
-	td1.setAttribute("colspan","2");
+	td1.setAttribute("colspan","3");
 	td1.innerHTML = "<b>&raquo;&nbsp;"+categoryName+"</b>";
     var td2 = document.createElement('td');
     td2.setAttribute("style","width: 5px; aling:right");
@@ -103,17 +104,28 @@ function createFilter(name, type, id){
     tr.id = "f-" + id;
     
     var td1 = document.createElement('td');
-    td1.innerHTML = name;
-	td1.setAttribute("style","width: 5%; padding-left: 5px");
-    tr.appendChild(td1);
+    td1.setAttribute("style","width:2%")
+    var img = document.createElement('img');
+    img.title = 'Hacer obligatorio este filtro \n' + 
+                'se omitiran los resultados que no lo contengan'  ;
+    img.src = 'images/optional2.ico'    
+    img.id = "0"; //optional
+    img.onclick = function () { changeFilterIco(img); }
+    td1.appendChild(img);  
+    tr.appendChild(td1);  
     
-    var td2; //= document.createElement('td');
+    var td2 = document.createElement('td');
+    td2.innerHTML = name;
+	td2.setAttribute("style","width: 5%; padding-left: 5px");
+    tr.appendChild(td2);
+    
+    var td3; //= document.createElement('td');
     var input = createInput(name, type);        
     if(type != 'F'){        
-        td2 = document.createElement('td');
-        td2.appendChild(input);
+        td3 = document.createElement('td');
+        td3.appendChild(input);
     } else {
-        td2 = input;
+        td3 = input;
     }
     
     //the close button
@@ -122,10 +134,11 @@ function createFilter(name, type, id){
     but.value = 'x';
     but.onclick = function () {borrarFiltro(category , id)} 
     but.className = "f-close-but"; 
+    but.title = 'Cerrar el filtro ' + name;
     
-    td2.appendChild(but);
+    td3.appendChild(but);
     
-    tr.appendChild(td2);
+    tr.appendChild(td3);
     
     return tr;
 }
@@ -171,4 +184,15 @@ function createInput(name, type){
     
     return input
 }
- 
+
+function changeFilterIco(obj){
+    if(obj.id == "0") {
+        obj.src = "images/mandatory2.ico";
+        obj.title = "Hacer opcional este filtro";
+        obj.id = "1";
+    } else {
+        obj.src = "images/optional2.ico";
+        obj.title = "Hacer obligatorio este filtro";
+        obj.id = "0";
+    }  
+}
