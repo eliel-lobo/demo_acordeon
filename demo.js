@@ -108,7 +108,7 @@ function createFilter(name, type, id){
     var img = document.createElement('img');
     img.title = 'Hacer obligatorio este filtro \n' + 
                 'se omitiran los resultados que no lo contengan'  ;
-    img.src = 'images/optional2.ico'    
+    img.src = 'images/lock_open.ico'    
     img.id = "0"; //optional
     img.onclick = function () { changeFilterIco(img); }
     td1.appendChild(img);  
@@ -187,11 +187,11 @@ function createInput(name, type){
 
 function changeFilterIco(obj){
     if(obj.id == "0") {
-        obj.src = "images/mandatory2.ico";
+        obj.src = "images/lock.ico";
         obj.title = "Hacer opcional este filtro";
         obj.id = "1";
     } else {
-        obj.src = "images/optional2.ico";
+        obj.src = "images/lock_open.ico";
         obj.title = "Hacer obligatorio este filtro";
         obj.id = "0";
     }  
